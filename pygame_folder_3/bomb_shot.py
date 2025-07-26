@@ -1,9 +1,9 @@
 import pygame
 
-def bombs(bombs,new_bombs,screen,bomb):
+def bombs(bombs,new_bombs,screen,bomb,speed):
     new_bombs = []#new_bombsのリセット(中身を空にする)
     for x, y in bombs:
-        y -= 3  # 移動速度
+        y -= speed  # 移動速度
         if y >=0:  # 画面内なら残す
             screen.blit(bomb, (x, y))
             new_bombs.append([x, y])  # 更新された位置でリストに戻す

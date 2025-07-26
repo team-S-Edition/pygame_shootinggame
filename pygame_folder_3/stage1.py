@@ -91,9 +91,10 @@ def stage_status(screen):
     myplane_x, myplane_y = width // 2, height-64
     enemy01_x,enemy01_y= width // 2, 64
     ui_x,ui_y = width,0
-    speed = 5
+    speed = 50
     low_speed = 2
     enemy_speed = 3
+    bullet_speed=100
 
     
     #flag初期設定 
@@ -257,7 +258,7 @@ def stage_status(screen):
         gameover_flag,myplane_arrive = check_hit.check_myplane(enemy_bombs01,hit_myplane,screen,now_time,start_time,first_switch)
 
         # 自機弾の移動プログラム
-        bombs = bomb_shot.bombs(bombs,new_bombs,screen,bomb)  # 更新
+        bombs = bomb_shot.bombs(bombs,new_bombs,screen,bomb,bullet_speed)  # 更新
 
         # 敵弾の移動プログラム
         enemy_bombs01, last_bullet_time = bomb_shot.enemy_bombs(enemy_bombs01,now_time,shot_delay_enemy,enemy01_x,enemy01_y,enemy_arrive,height,screen,enemy_bomb01_image,last_bullet_time)

@@ -263,13 +263,14 @@ def stage_status(screen):
         # 自機弾の移動プログラム
         new_bombs = []#new_bombsのリセット(中身を空にする)
         for x, y in bombs:
-            y -= 3  # 移動速度
+            y -= 40  # 移動速度
             if y >=0:  # 画面内なら残す
                 screen.blit(bomb, (x, y))
                 new_bombs.append([x, y])  # 更新された位置でリストに戻す
         bombs = new_bombs  # 更新
 
         # 敵弾の移動プログラム
+ 
         if now_time - last_bullet_time > shot_delay_enemy: # 現在時刻 - 最後に弾を撃った時刻 > 敵弾のディレイ時間 
             last_bullet_time = pygame.time.get_ticks()
             enemy_bombs01.append([enemy01_x,enemy01_y])
@@ -287,7 +288,10 @@ def stage_status(screen):
             
             for x, y in enemy_bombs01:
                 screen.blit(enemy_bomb01_image, (x, y))
-        
+#皆さんがプログラムを加える場所
+############################################################
+############################################################
+############################################################
         #動き
         if 0>=enemy01_x:
             enemy01_movemode=1
@@ -297,6 +301,10 @@ def stage_status(screen):
             enemy01_x-=4
         elif enemy01_movemode==1:
             enemy01_x+=4
+
+############################################################
+############################################################
+############################################################
 
     # 画面外に出ないようにする
     #*if myplane_x<0:
