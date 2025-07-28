@@ -11,7 +11,7 @@ def bombs(bombs,new_bombs,screen,bomb,speed):
 
     return new_bombs
 
-def enemy_bombs(enemy_bombs01, now_time, shot_delay_enemy, enemy01_x, enemy01_y, enemy_arrive, height, screen, enemy_bomb01_image, last_bullet_time):
+def enemy_bombs(enemy_bombs01, now_time, shot_delay_enemy, enemy01_x, enemy01_y, enemy_arrive, height, screen, enemy_bomb01_image, last_bullet_time,speed):
     if now_time - last_bullet_time > shot_delay_enemy:
         last_bullet_time = pygame.time.get_ticks()
         enemy_bombs01.append([enemy01_x, enemy01_y])
@@ -19,7 +19,7 @@ def enemy_bombs(enemy_bombs01, now_time, shot_delay_enemy, enemy01_x, enemy01_y,
     new_enemy_bombs01 = []
     if enemy_arrive:
         for x, y in enemy_bombs01:
-            y += 3
+            y += speed  # 移動速度
             new_enemy_bombs01.append([x, y])
             if y > height:
                 new_enemy_bombs01.remove([x, y])

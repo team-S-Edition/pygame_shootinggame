@@ -91,12 +91,13 @@ def stage_status(screen):
     myplane_x, myplane_y = width // 2, height-64
     enemy01_x,enemy01_y= width // 2, 64
     ui_x,ui_y = width,0
-    speed = 50
-    low_speed = 2
-    enemy_speed = 3
-    bullet_speed=100
+    speed = 10
+    low_speed = 1
+    enemy_speed = 10
+    bullet_speed = 50
+    enemy_bullet_speed = 30
+    shot_delay =  1000# ディレイ時間（ミリ秒/自機）弾の発射間隔
 
-    
     #flag初期設定 
     gameclear_flag=False
     gameover_flag=False
@@ -108,9 +109,9 @@ def stage_status(screen):
 
     
     # 銃弾関連変数初期設定
-    bullet_count=10 #弾数
+    bullet_count=25 #弾数
     last_shot_time = 0 #最後に弾を撃った時間（自機）
-    shot_delay = 1000 # ディレイ時間（ミリ秒/自機）
+    
     now_time= 0 # 現在時刻
     last_bullet_time=0 # 最後に弾を撃った時間（敵機）
     bombs=[] # 弾のリスト（自機）
@@ -261,7 +262,7 @@ def stage_status(screen):
         bombs = bomb_shot.bombs(bombs,new_bombs,screen,bomb,bullet_speed)  # 更新
 
         # 敵弾の移動プログラム
-        enemy_bombs01, last_bullet_time = bomb_shot.enemy_bombs(enemy_bombs01,now_time,shot_delay_enemy,enemy01_x,enemy01_y,enemy_arrive,height,screen,enemy_bomb01_image,last_bullet_time)
+        enemy_bombs01, last_bullet_time = bomb_shot.enemy_bombs(enemy_bombs01,now_time,shot_delay_enemy,enemy01_x,enemy01_y,enemy_arrive,height,screen,enemy_bomb01_image,last_bullet_time,enemy_bullet_speed)
         
         #動き^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         enemy01_x,enemy01_movemode = enemy_move.enemy_move(enemy01_movemode,enemy01_x,width,enemy_speed)

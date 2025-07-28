@@ -1,4 +1,4 @@
-max_number=100
+max_number=1000
 number=2
 warukazu=2
 while True:
@@ -7,7 +7,7 @@ while True:
     if(number==warukazu):
         print(number,"は素数です")
         number+=1
-        warukazu=2
+        warukazu=2 
     elif(number%warukazu==0):
         print(number,"は素数ではない")
         number+=1
