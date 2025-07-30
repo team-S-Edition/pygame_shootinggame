@@ -91,7 +91,7 @@ def stage_status(screen):
     myplane_x, myplane_y = width // 2, height-64
     enemy01_x,enemy01_y= width // 2, 64
     ui_x,ui_y = width,0
-    speed = 10
+    speed = 100
     low_speed = 1
     enemy_speed = 10
     bullet_speed = 50
